@@ -1,2 +1,2 @@
 # egpz.github.io
-test
+the future home of egpz.com
