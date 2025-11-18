@@ -41,3 +41,5 @@ function loadResults() {
 
   resultContainer.innerHTML = html;
 }
+
+document.addEventListener("DOMContentLoaded", loadResults);
