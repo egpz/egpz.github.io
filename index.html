@@ -7,6 +7,13 @@
   <link rel="stylesheet" href="style.css">
   <script defer src="search.js"></script>
 </head>
+  <script>
+  document.getElementById("searchInput").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      performSearch();
+    }
+  });
+</script>
 <body>
 
   <div class="center-box">
