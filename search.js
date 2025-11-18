@@ -1,9 +1,8 @@
 // Define your site “search index” here
 const searchIndex = [
-  { keyword: "about", page: "pages/about.html", description: "Learn more about EGPZ." },
-  { keyword: "contact", page: "pages/contact.html", description: "Contact information." },
-  { keyword: "projects", page: "pages/projects.html", description: "View projects on EGPZ." },
-  { keyword: "home", page: "index.html", description: "Return to homepage." }
+  // Everytime you add a new page, update this list with the right info 
+  // just copy the same structure
+  { keyword: "Laisha", page: "pages/laishaplaylist.html", description: "Music to your ears" }
 ];
 
 function performSearch() {
