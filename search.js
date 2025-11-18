@@ -44,7 +44,7 @@ function loadResults() {
 // fix js race condition
 document.addEventListener("DOMContentLoaded", loadResults);
 
-// alow search by pressing Enter 
+/* alow search by pressing Enter 
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("searchInput");
   input.addEventListener("keydown", function(event) {
@@ -52,4 +52,4 @@ document.addEventListener("DOMContentLoaded", () => {
       performSearch();
     }
   });
-});
+}); */
