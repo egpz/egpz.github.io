@@ -2,7 +2,7 @@
 const searchIndex = [
   // Everytime you add a new page, update this list with the right info 
   // just copy the same structure
-  { keyword: "laishaplaylist", page: "pages/laisha.html", description: "Music to your ears" }
+  { keyword: "laishaplaylist", page: "/pages/laisha.html", description: "Music to your ears" }
 ];
 
 function performSearch() {
