@@ -3,86 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search Results</title>
-  <link rel="stylesheet" href="style.css">
+  <title>EGPZ Search Results</title>
   <script defer src="search.js"></script>
-
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; background: #fff; }
 
-    /* Header like Google */
-    .results-header {
-      display: flex;
-      align-items: center;
-      padding: 20px 30px;
+    /* Google Header */
+    .topbar {
+      display: flex; align-items: center; padding: 18px 30px;
       border-bottom: 1px solid #e0e0e0;
     }
+    .logo span { font-size: 28px; font-weight: bold; cursor: pointer; }
 
-    .results-header .logo {
-      font-size: 32px;
-      font-weight: bold;
-      margin-right: 30px;
-      cursor: pointer;
-    }
-
-    .results-searchbar {
-      flex: 1;
-      display: flex;
-      align-items: center;
-    }
-
-    .results-searchbar input {
-      width: 100%;
-      padding: 12px 18px;
-      font-size: 16px;
-      border: 1px solid #dcdcdc;
-      border-radius: 24px;
+    .search-area { flex: 1; display: flex; }
+    .search-box {
+      width: 100%; padding: 12px 20px; font-size: 16px;
+      border: 1px solid #dcdcdc; border-radius: 24px;
       outline: none;
     }
 
-    .results-container {
-      max-width: 700px;
-      margin: 30px auto;
-      padding: 0 20px;
+    /* Nav Bar */
+    .nav {
+      padding-left: 165px; padding-top: 15px; font-size: 14px;
+      color: #5f6368; border-bottom: 1px solid #ebebeb; display: flex; gap: 25px;
     }
 
-    .result-item {
-      margin-bottom: 35px;
+    .nav-item { cursor: pointer; padding-bottom: 12px; }
+    .nav-item.active { color: #1a73e8; border-bottom: 3px solid #1a73e8; }
+
+    /* Results container */
+    .results-container {
+      max-width: 650px; margin: 25px 0 0 165px;
     }
+
+    .result-item { margin-bottom: 32px; }
 
     .result-title {
-      font-size: 20px;
-      color: #1a0dab;
-      text-decoration: none;
+      font-size: 20px; color: #1a0dab; text-decoration: none;
     }
+    .result-title:hover { text-decoration: underline; }
 
-    .result-title:hover {
-      text-decoration: underline;
-    }
+    .result-link { font-size: 14px; color: #006621; margin-bottom: 3px; }
 
-    .result-link {
-      font-size: 14px;
-      color: #006621;
-      margin-bottom: 5px;
-    }
+    .result-desc { font-size: 14px; color: #4d4d4d; line-height: 1.5; }
 
-    .result-desc {
-      font-size: 14px;
-      color: #4d4d4d;
-      max-width: 600px;
-      line-height: 1.5;
+    /* Footer */
+    .footer {
+      margin-top: 40px; padding: 15px 165px; font-size: 14px;
+      color: #5f6368; background: #f2f2f2; border-top: 1px solid #e0e0e0;
     }
   </style>
 </head>
-
 <body>
 
   <!-- HEADER -->
-  <div class="results-header">
+  <div class="topbar">
     <div class="logo" onclick="window.location.href='index.html'">
       <span style="color:#4285F4">E</span>
       <span style="color:#EA4335">G</span>
@@ -90,9 +65,18 @@
       <span style="color:#34A853">Z</span>
     </div>
 
-    <div class="results-searchbar">
-      <input id="searchInput" type="text" placeholder="Search…" />
+    <div class="search-area">
+      <input id="searchInput" class="search-box" type="text" />
     </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="nav-item active">All</div>
+    <div class="nav-item">Images</div>
+    <div class="nav-item">Videos</div>
+    <div class="nav-item">News</div>
+    <div class="nav-item">More</div>
   </div>
 
   <!-- RESULTS -->
@@ -100,13 +84,13 @@
     <div id="results"></div>
   </div>
 
+  <div class="footer">EGPZ search clone</div>
+
   <script>
-    // Run search results after HTML loads
     document.addEventListener("DOMContentLoaded", () => {
       const query = localStorage.getItem("EGPZ_query") || "";
       document.getElementById("searchInput").value = query;
 
-      // If user presses Enter, search again
       document.getElementById("searchInput").addEventListener("keydown", function(e) {
         if (e.key === "Enter") performSearch();
       });
