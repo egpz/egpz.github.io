@@ -30,14 +30,15 @@ function loadResults() {
   }
 
   let html = "";
-  matches.forEach(m => {
-    html += `
-      <div class="result-item">
-        <a href="${m.page}">${m.keyword}</a>
-        <div class="result-desc">${m.description}</div>
-      </div>
-    `;
-  });
+matches.forEach(m => {
+  html += `
+    <div class="result-item">
+      <div class="result-link">${m.page}</div>
+      <a class="result-title" href="${m.page}">${m.keyword}</a>
+      <div class="result-desc">${m.description}</div>
+    </div>
+  `;
+});
 
   resultContainer.innerHTML = html;
 }
